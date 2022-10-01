@@ -47,28 +47,6 @@
       </div>
     </div>
 
-    <footer th:fragment="footer" class="container">
-      <hr />
-      <img
-        th:src="@{/images/Logotipo (137 × 137 px).png}"
-        alt="Vigia de Precios"
-      />
-      <p>
-        Powered by
-        <a href="https://projects.spring.io/spring-boot/">Spring Boot</a> y
-        <a href="http://www.thymeleaf.org">Thymeleaf</a>.
-      </p>
-      <p>
-        Este proyecto fue desarrollado en IDE VS Code + Spring Plugins (STS
-        Spring Tool), Backend Eduardo E. Enríquez R.<br />
-        &copy; Company 2022, Inc. Todos los derechos reservados. Términos de uso
-        y privacidad.<br />
-      </p>
-      <!-- Optional JavaScript -->
-      <!-- jQuery first, then Bootstrap JS -->
-      <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
-      <script th:src="@{/js/popper.min.js}"></script>
-      <script th:src="@{/js/bootstrap.min.js}"></script>
-    </footer>
+    <footer th:replace="layout/layoutUsu :: footer" class="container"></footer>
   </body>
 </html>
