@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="layout/layoutUsu :: head"></head>
+  <body>
+    <header th:replace="layout/layoutUsu :: header"></header>
+
+    <div class="container py-4">
+      <div class="card bg-light">
+        <div class="card-header" th:text="${titulo}"></div>
+        <div class="card-body">
+          <h4 class="card-title">
+            <a th:href="@{/nuevoUsuario}" class="btn btn-primary"
+              >Crear usuario</a
+            >
+          </h4>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Usuario</th>
+                <th scope="col">Contraseña</th>
+                <th scope="col">Correo Electrónico</th>
+                <th scope="col">Móvil</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="usuario:${usuario}">
+                <td th:text="${usuario.id}"></td>
+                <td th:text="${usuario.name}"></td>
+                <td th:text="${usuario.username}"></td>
+                <td th:text="${usuario.password}"></td>
+                <td th:text="${usuario.email}"></td>
+                <td th:text="${usuario.movil}"></td>
+
+                <td>
+                  <a
+                    class="btn btn-primary"
+                    th:href="@{'/nuevoUsuario/'} + ${usuario.id}"
+                    >Editar</a
+                  >
+                  &nbsp;
+                  <a
+                    class="btn btn-danger"
+                    th:href="@{'/eliminar/'+${usuario.id}}"
+                    onclick="return confirm('Está seguro de eliminar el registro?');"
+                    >Borrar</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <footer th:replace="layout/layoutUsu :: footer"></footer>
+  </body>
+</html>

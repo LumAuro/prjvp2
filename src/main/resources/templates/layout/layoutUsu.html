@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:fragment="head">
+    <meta charset="UTF-8" />
+    <title th:text="'Proyecto Ciclo III - Grupo 27 - 1 - ' + ${titulo}"></title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/styless.css}" />
+  </head>
+  <body>
+    <header th:fragment="header">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="imagen">
+          <div th:replace="layout/layoutUsu :: logo"></div></a>
+        </div>
+        <a class="navbar-brand" href="#">Vigia de Precios</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" th:href="@{/}">Cerrar Sesión </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/listarUsuarios}">Usuarios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/listarTiendas}">Tiendas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/listarProductos}">Productos</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div th:fragment="logo" class="logo">
+      <svg xmlns:mydata="http://www.w3.org/2000/svg" mydata:contrastcolor="ffffff" mydata:template="Default" mydata:presentation="2.5" mydata:layouttype="undefined" mydata:specialfontid="undefined" mydata:id1="635" mydata:id2="034" mydata:companyname="Vigía de precios" mydata:companytagline="" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="180 114 170 127" class="svg-primary-tile">
+        <g fill="#004b87" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+          <g data-paper-data="{&quot;isGlobalGroup&quot;:true,&quot;bounds&quot;:{&quot;x&quot;:192.68521785973996,&quot;y&quot;:115,&quot;width&quot;:88.32311170184298,&quot;height&quot;:124.62497240586427}}" style="border: thin solid black;">
+            <g data-paper-data="{&quot;fillRule&quot;:&quot;nonzero&quot;,&quot;fillRuleOriginal&quot;:&quot;nonzero&quot;,&quot;isIcon&quot;:true,&quot;iconStyle&quot;:&quot;standalone&quot;,&quot;selectedEffects&quot;:{&quot;container&quot;:&quot;&quot;,&quot;transformation&quot;:&quot;&quot;,&quot;pattern&quot;:&quot;&quot;},&quot;bounds&quot;:{&quot;x&quot;:230.83844414907847,&quot;y&quot;:115,&quot;width&quot;:88.32311170184298,&quot;height&quot;:124.62497240586427},&quot;iconType&quot;:&quot;icon&quot;,&quot;rawIconId&quot;:&quot;dbeb1e36-6967-46e1-b315-b9b450f4fb0d&quot;,&quot;isDetailed&quot;:&quot;false&quot;,&quot;suitableAsStandaloneIcon&quot;:true}">
+              <path d="M237.04906,145.5654c0,-4.99375 1.70673,-8.78648 5.12018,-11.44138l20.22786,-12.89526v39.12827c0,4.36163 -1.5803,7.39581 -4.80412,9.16575c-3.09739,1.70673 -5.68909,3.22382 -7.8383,4.55127c-7.96472,4.55127 -12.19993,9.86108 -12.70563,15.86623zM306.13985,130.83698c-4.48806,0 -8.53363,1.26424 -12.26314,3.72951c-3.72951,2.46527 -6.44763,5.81551 -8.15436,9.9243l-24.96877,56.25875l-8.59684,-20.92319c2.21242,-1.32746 4.99375,-2.97097 8.47042,-4.93054c5.30982,-2.97097 7.96472,-7.77508 7.96472,-14.53877v-39.12827c0,-2.40206 -1.0746,-4.172 -3.22382,-5.37302c-2.086,-1.20103 -4.172,-1.13782 -6.25799,0.18964c-13.5906,8.59684 -20.48071,13.02169 -20.73356,13.21132c-4.99375,3.85593 -7.45902,9.29217 -7.45902,16.30872v38.49615c0,3.09739 0,4.172 -0.06321,3.35024c-0.12643,3.91915 0.5057,7.52224 1.83315,10.74605c6.25799,14.85484 11.5046,26.42264 15.86623,34.577c2.33885,4.36163 6.44763,6.70048 12.19993,6.89012c5.7523,-0.18964 9.86108,-2.52848 12.19993,-6.89012c5.05696,-9.48181 12.13671,-24.65271 21.30247,-45.51269c13.96987,-31.85888 22.25065,-50.63287 24.90556,-56.38517z" data-paper-data="{&quot;isPathIcon&quot;:true}">
+              </path>
+            </g>
+          </g>
+        </g>
+      </svg>
+      <div>Vigía de Precios</div>
+    </div>
+    <div class="container"></div>
+
+    <footer th:fragment="footer" class="container footer">
+      <hr />
+      <span class="logo-footer">
+        <div th:replace="layout/layoutUsu :: logo"></div></a>
+      </span>
+      <div class="footer-content">
+        <p>
+          Powered by
+          <a href="https://projects.spring.io/spring-boot/">Spring Boot</a> y
+          <a href="http://www.thymeleaf.org">Thymeleaf</a>.
+        </p>
+        <p>
+          Este proyecto fue desarrollado en IDE VS Code + Spring Plugins (STS
+          Spring Tool), Backend Eduardo E. Enríquez R.<br />
+          &copy; Company 2022, Inc. Todos los derechos reservados. Términos de uso
+          y privacidad.<br />
+        </p>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Bootstrap JS -->
+        <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+        <script th:src="@{/js/popper.min.js}"></script>
+        <script th:src="@{/js/bootstrap.min.js}"></script>
+      </div>
+    </footer>
+  </body>
+</html>

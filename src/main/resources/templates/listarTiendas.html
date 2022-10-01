@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="layout/layoutUsu :: head"></head>
+  <body>
+    <header th:replace="layout/layoutUsu :: header"></header>
+
+    <div class="container py-4">
+      <div class="card bg-light">
+        <div class="card-header" th:text="${titulo}"></div>
+        <div class="card-body">
+          <h4 class="card-title">
+            <a th:href="@{/nuevaTienda}" class="btn btn-primary"
+              >Crear tienda</a
+            >
+          </h4>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Latitud</th>
+                <th scope="col">Longitud</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="tienda:${tienda}">
+                <td th:text="${tienda.id}"></td>
+                <td th:text="${tienda.name}"></td>
+                <td th:text="${tienda.address}"></td>
+                <td th:text="${tienda.latitude}"></td>
+                <td th:text="${tienda.longitude}"></td>
+
+                <td>
+                  <a
+                    class="btn btn-primary"
+                    th:href="@{'/nuevaTienda/'} + ${tienda.id}"
+                    >Editar</a
+                  >
+                  &nbsp;
+                  <a
+                    class="btn btn-danger"
+                    th:href="@{'/eliminarT/'+${tienda.id}}"
+                    onclick="return confirm('Está seguro de eliminar el registro?');"
+                    >Borrar</a
+                  >
+                  <a
+                    class="btn btn-secondary"
+                    target="_blank"
+                    th:href="@{'https://www.google.com/maps/search/?api=1&query='} + ${tienda.latitude} + @{%2C} + ${tienda.longitude}"
+                    alt="Mostrar ubicación en Google Maps"
+                    >Mapa</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <footer th:replace="layout/layoutUsu :: footer"></footer>
+  </body>
+</html>

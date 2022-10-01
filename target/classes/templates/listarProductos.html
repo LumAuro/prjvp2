@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="layout/layoutUsu :: head"></head>
+  <body>
+    <header th:replace="layout/layoutUsu :: header"></header>
+
+    <div class="container py-4">
+      <div class="card bg-light">
+        <div class="card-header" th:text="${titulo}"></div>
+        <div class="card-body">
+          <h4 class="card-title">
+            <a th:href="@{/nuevoProducto}" class="btn btn-primary"
+              >Crear producto</a
+            >
+          </h4>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">EAN13</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="producto:${producto}">
+                <td th:text="${producto.id}"></td>
+                <td th:text="${producto.name}"></td>
+                <td th:text="${producto.brand}"></td>
+                <td th:text="${producto.description}"></td>
+                <td th:text="${producto.ean13}"></td>
+
+                <td>
+                  <a
+                    class="btn btn-primary"
+                    th:href="@{'/nuevoProducto/'} + ${producto.id}"
+                    >Editar</a
+                  >
+                  &nbsp;
+                  <a class="btn btn-danger"
+                    th:href="@{'/eliminarP/'+${producto.id}}"
+                    onclick="return confirm('Está seguro de eliminar el registro?');">
+                    Borrar
+                  </a>
+                  &nbsp;
+                  <a class="btn btn-secondary"
+                    th:href="@{'/preciosP/'+${producto.id}}">
+                    Precios
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <footer th:replace="layout/layoutUsu :: footer"></footer>
+  </body>
+</html>

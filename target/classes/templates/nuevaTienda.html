@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="layout/layoutUsu :: head"></head>
+  <body>
+    <header th:replace="layout/layoutUsu :: header"></header>
+    <div class="container py-4">
+      <div class="card bg-dark text-white">
+        <div class="card-header" th:text="${titulo}"></div>
+        <div class="card-body">
+          <form th:action="@{/nuevaTienda}" th:object="${tienda}" method="post">
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Nombre</label>
+              <div class="col-sm-6">
+                <input
+                  type="text"
+                  name="name"
+                  th:field="*{name}"
+                  class="form-control"
+                  placeholder="Nombre completo"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Dirección</label>
+              <div class="col-sm-6">
+                <input
+                  type="text"
+                  name="address"
+                  th:field="*{address}"
+                  class="form-control"
+                  placeholder="Nueva Tienda"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Latitud</label>
+              <div class="col-sm-6">
+                <input
+                  type="text"
+                  name="latitude"
+                  th:field="*{latitude}"
+                  class="form-control"
+                  placeholder="Ingrese la latidud de sitio"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Longitud</label>
+              <div class="col-sm-6">
+                <input
+                  type="text"
+                  name="longitude"
+                  th:field="*{longitude}"
+                  class="form-control"
+                  placeholder="Longitud ubicación del sitio"
+                  required
+                />
+              </div>
+            </div>
+
+            <br />
+            <div class="box-footer">
+              <button class="btn btn-success">Guardar</button>
+            </div>
+
+            <input type="hidden" th:field="*{id}" />
+          </form>
+        </div>
+      </div>
+    </div>
+    <footer th:replace="layout/layoutUsu :: footer"></footer>
+  </body>
+</html>
